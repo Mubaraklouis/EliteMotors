@@ -1,0 +1,29 @@
+# ─── Dependencies ─────────────────────────────
+node_modules/
+dist/
+build/
+
+# ─── Environment ──────────────────────────────
+.env
+.env.local
+.env.*.local
+
+# ─── Logs ─────────────────────────────────────
+*.log
+npm-debug.log*
+
+# ─── OS ───────────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ─── Editor ───────────────────────────────────
+.vscode/
+.idea/
+*.suo
+*.user
+
+# ─── Uploads ──────────────────────────────────
+server/uploads/
+
+# ─── TypeScript build output ──────────────────
+server/dist/
