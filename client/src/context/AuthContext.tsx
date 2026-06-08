@@ -5,8 +5,7 @@ import React, {
   useEffect,
   useCallback,
 } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { User, Dealer } from '../types';
+import type { User, Dealer } from '../types';
 import { authService } from '../services/auth.service';
 
 interface AuthContextValue {
