@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Car } from '../types';
+import type { Car } from '../types';
 import { carsService } from '../services/cars.service';
 import CarCard from '../components/CarCard';
 import RentalModal from '../components/RentalModal';

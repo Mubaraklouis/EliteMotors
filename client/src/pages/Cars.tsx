@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { Car, CarFilters } from '../types';
+import type { Car, CarFilters } from '../types';
 import { carsService } from '../services/cars.service';
 import CarCard from '../components/CarCard';
 import CarFiltersBar from '../components/CarFilters';

@@ -1,5 +1,5 @@
 import api from './api';
-import { Rental } from '../types';
+import type { Rental } from '../types';
 
 export const rentalsService = {
   async createRental(data: {

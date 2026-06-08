@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Car } from '../types';
+import type { Car } from '../types';
 import { rentalsService } from '../services/rentals.service';
 import { useAuth } from '../context/AuthContext';
 import { Link } from 'react-router-dom';

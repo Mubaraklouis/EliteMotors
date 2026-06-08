@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Car } from '../types';
+import type { Car } from '../types';
 import { carsService } from '../services/cars.service';
 
 interface Props {

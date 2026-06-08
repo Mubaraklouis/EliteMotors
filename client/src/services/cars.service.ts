@@ -1,5 +1,5 @@
 import api, { API_URL } from './api';
-import { Car, CarImage, Dealer, CarFilters, CarsResponse } from '../types';
+import type { Car, CarImage, Dealer, CarFilters, CarsResponse } from '../types';
 
 export const carsService = {
   async getCars(filters: CarFilters = {}): Promise<CarsResponse> {

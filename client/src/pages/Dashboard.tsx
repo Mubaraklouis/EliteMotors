@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { Car } from '../types';
+import type { Car } from '../types';
 import { carsService } from '../services/cars.service';
 import StatsCard from '../components/StatsCard';
 

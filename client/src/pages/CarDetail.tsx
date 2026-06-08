@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link, useSearchParams } from 'react-router-dom';
-import { Car, CarImage, Dealer } from '../types';
+import type { Car, CarImage, Dealer } from '../types';
 import { carsService } from '../services/cars.service';
 import RentalModal from '../components/RentalModal';
 import { useAuth } from '../context/AuthContext';

@@ -1,4 +1,4 @@
-import { CarFilters } from '../types';
+import type { CarFilters } from '../types';
 
 interface Props {
   filters: CarFilters;
