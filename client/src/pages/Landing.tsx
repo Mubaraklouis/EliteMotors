@@ -19,26 +19,22 @@ export default function Landing() {
 
   return (
     <div style={{ background: 'var(--bg)' }}>
-      {/* ── Hero ────────────────────────────────────────────────────────────── */}
-      <section
-        className="hero-gradient"
-        style={{ minHeight: 'calc(100vh - 64px)', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden' }}
-      >
-        {/* Background decoration */}
-        <div style={{
-          position: 'absolute', inset: 0, pointerEvents: 'none',
-          backgroundImage: 'radial-gradient(circle at 20% 80%, rgba(245,158,11,0.05) 0%, transparent 40%), radial-gradient(circle at 80% 20%, rgba(249,115,22,0.05) 0%, transparent 40%)',
-        }} />
+      {/* ━━ HERO ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+      <section style={{ minHeight: 'calc(100vh - 64px)', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden' }}>
+        {/* Gradient orbs */}
+        <div style={{ position: 'absolute', top: '-20%', right: '-10%', width: 600, height: 600, borderRadius: '50%', background: 'radial-gradient(circle, rgba(245,158,11,0.06) 0%, transparent 70%)', pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', bottom: '-30%', left: '-5%', width: 500, height: 500, borderRadius: '50%', background: 'radial-gradient(circle, rgba(217,119,6,0.04) 0%, transparent 70%)', pointerEvents: 'none' }} />
 
-        <div className="container" style={{ position: 'relative', zIndex: 1, paddingTop: 60, paddingBottom: 80 }}>
+        <div className="container" style={{ position: 'relative', zIndex: 1, paddingTop: 60, paddingBottom: 100 }}>
           <div style={{ maxWidth: 720, margin: '0 auto', textAlign: 'center' }}>
             {/* Tag */}
-            <div className="anim-fade-up" style={{ marginBottom: 24 }}>
+            <div className="anim-fade-up" style={{ marginBottom: 28 }}>
               <span style={{
-                display: 'inline-flex', alignItems: 'center', gap: 6,
-                padding: '6px 16px', borderRadius: 20,
-                background: 'rgba(245,158,11,0.1)', border: '1px solid rgba(245,158,11,0.2)',
+                display: 'inline-block',
+                padding: '7px 18px', borderRadius: 100,
+                background: 'rgba(245,158,11,0.08)', border: '1px solid rgba(245,158,11,0.15)',
                 fontSize: 13, fontWeight: 600, color: 'var(--accent)',
+                letterSpacing: '0.3px',
               }}>
                 Premium Automotive Platform
               </span>
@@ -48,9 +44,9 @@ export default function Landing() {
             <h1
               className="anim-fade-up delay-1"
               style={{
-                fontSize: 'clamp(42px, 8vw, 80px)',
+                fontSize: 'clamp(42px, 8vw, 76px)',
                 fontWeight: 900,
-                letterSpacing: '-0.03em',
+                letterSpacing: '-0.035em',
                 lineHeight: 1.05,
                 marginBottom: 24,
                 color: 'var(--txt)',
@@ -63,80 +59,74 @@ export default function Landing() {
             {/* Subheading */}
             <p
               className="anim-fade-up delay-2"
-              style={{ fontSize: 'clamp(16px, 2.5vw, 20px)', color: 'var(--txt2)', lineHeight: 1.6, marginBottom: 40, maxWidth: 560, margin: '0 auto 40px' }}
+              style={{ fontSize: 'clamp(16px, 2.2vw, 19px)', color: 'var(--txt2)', lineHeight: 1.7, marginBottom: 44, maxWidth: 540, margin: '0 auto 44px' }}
             >
-              Buy, sell & rent premium vehicles. Connect directly with verified dealers via WhatsApp — no middlemen, no hassle.
+              Buy, sell and rent premium vehicles. Connect directly with verified dealers via WhatsApp — no middlemen, no hassle.
             </p>
 
             {/* CTAs */}
-            <div className="anim-fade-up delay-3" style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap', marginBottom: 40 }}>
+            <div className="anim-fade-up delay-3" style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap' }}>
               <Link to="/cars" className="btn btn-primary btn-lg" style={{ textDecoration: 'none', minWidth: 180 }}>
-                Explore Cars →
+                Explore Cars
               </Link>
               <Link to="/register" className="btn btn-outline btn-lg" style={{ textDecoration: 'none', minWidth: 180 }}>
                 List Your Car
               </Link>
             </div>
-
-            {/* Trust indicators */}
-            <div className="anim-fade-up delay-4" style={{ display: 'flex', justifyContent: 'center', gap: 24, flexWrap: 'wrap' }}>
-              {['Verified Dealers', 'WhatsApp Deals', 'Instant Rentals'].map((item) => (
-                <span key={item} style={{ fontSize: 13, color: 'var(--txt2)', display: 'flex', alignItems: 'center', gap: 4 }}>
-                  {item}
-                </span>
-              ))}
-            </div>
           </div>
         </div>
 
-        {/* Bottom fade */}
-        <div style={{
-          position: 'absolute', bottom: 0, left: 0, right: 0, height: 100,
-          background: 'linear-gradient(transparent, var(--bg))',
-          pointerEvents: 'none',
-        }} />
+        {/* Bottom gradient */}
+        <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 120, background: 'linear-gradient(transparent, var(--bg))', pointerEvents: 'none' }} />
       </section>
 
-      {/* ── Stats Bar ──────────────────────────────────────────────────────── */}
-      <section style={{ padding: '0 0 80px' }}>
+      {/* ━━ METRICS STRIP ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+      <section style={{ padding: '0 0 100px' }}>
         <div className="container">
-          <div
-            className="glass glow-amber"
-            style={{
-              borderRadius: 20, padding: '28px 40px',
-              display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
-              gap: 24, textAlign: 'center',
-            }}
-          >
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(4, 1fr)',
+            gap: 1,
+            background: 'var(--border)',
+            borderRadius: 20,
+            overflow: 'hidden',
+          }}>
             {[
-              { value: '500+', label: 'Cars Listed', icon: '' },
-              { value: '200+', label: 'Verified Dealers', icon: '' },
-              { value: '1,000+', label: 'Deals Completed', icon: '' },
-              { value: '50+', label: 'Cities Covered', icon: '' },
-            ].map(({ value, label, icon }) => (
-              <div key={label}>
-                <div style={{ fontSize: 28, fontWeight: 900, color: 'var(--accent)', marginBottom: 4, letterSpacing: '-.02em' }}>
-                  {icon} {value}
+              { value: '500+', label: 'Cars Listed' },
+              { value: '200+', label: 'Verified Dealers' },
+              { value: '1,000+', label: 'Deals Closed' },
+              { value: '50+', label: 'Cities' },
+            ].map(({ value, label }) => (
+              <div
+                key={label}
+                style={{
+                  background: 'var(--bg2)',
+                  padding: '36px 24px',
+                  textAlign: 'center',
+                }}
+              >
+                <div style={{ fontSize: 32, fontWeight: 900, color: 'var(--accent)', letterSpacing: '-0.03em', marginBottom: 6, lineHeight: 1 }}>
+                  {value}
                 </div>
-                <div style={{ fontSize: 13, color: 'var(--txt2)' }}>{label}</div>
+                <div style={{ fontSize: 13, color: 'var(--txt3)', fontWeight: 500, letterSpacing: '0.3px' }}>{label}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── Featured Cars ───────────────────────────────────────────────────── */}
+      {/* ━━ FEATURED VEHICLES ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="container">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 40, flexWrap: 'wrap', gap: 12 }}>
             <div>
-              <h2 className="section-title" style={{ marginBottom: 8 }}>
-                Featured <span className="gradient-text">Vehicles</span>
+              <p style={{ fontSize: 12, fontWeight: 700, color: 'var(--accent)', textTransform: 'uppercase', letterSpacing: '1.5px', marginBottom: 10 }}>Curated Selection</p>
+              <h2 style={{ fontSize: 'clamp(24px, 4vw, 36px)', fontWeight: 800, color: 'var(--txt)', letterSpacing: '-0.02em' }}>
+                Featured Vehicles
               </h2>
-              <p className="section-sub">Hand-picked premium listings</p>
             </div>
             <Link to="/cars" className="btn btn-outline" style={{ textDecoration: 'none' }}>
-              View All →
+              View All
             </Link>
           </div>
 
@@ -161,120 +151,199 @@ export default function Landing() {
             </div>
           ) : (
             <div style={{ textAlign: 'center', padding: '60px 0', color: 'var(--txt2)' }}>
-              <div style={{ fontSize: 18, fontWeight: 700, marginBottom: 16, color: 'var(--txt2)' }}>No cars yet</div>
-              <p>No cars listed yet. Be the first!</p>
-              <Link to="/register" className="btn btn-primary" style={{ marginTop: 16, textDecoration: 'none' }}>List a Car</Link>
+              <p style={{ marginBottom: 16 }}>No cars listed yet. Be the first dealer.</p>
+              <Link to="/register" className="btn btn-primary" style={{ textDecoration: 'none' }}>List a Car</Link>
             </div>
           )}
         </div>
       </section>
 
-      {/* ── How It Works ────────────────────────────────────────────────────── */}
+      {/* ━━ HOW IT WORKS — Modern bento-style ━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <section className="section" style={{ background: 'var(--bg2)' }}>
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: 56 }}>
-            <h2 className="section-title" style={{ marginBottom: 12 }}>
-              How It <span className="gradient-text">Works</span>
+            <p style={{ fontSize: 12, fontWeight: 700, color: 'var(--accent)', textTransform: 'uppercase', letterSpacing: '1.5px', marginBottom: 10 }}>Simple Process</p>
+            <h2 style={{ fontSize: 'clamp(24px, 4vw, 36px)', fontWeight: 800, color: 'var(--txt)', letterSpacing: '-0.02em' }}>
+              How It Works
             </h2>
-            <p className="section-sub">Three simple steps to your next car</p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 32 }}>
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(3, 1fr)',
+            gap: 2,
+            background: 'var(--border)',
+            borderRadius: 24,
+            overflow: 'hidden',
+          }}>
             {[
               {
-                step: '01', icon: '', title: 'Browse',
-                desc: 'Explore hundreds of verified listings — filter by city, type, price, and more.',
+                step: '01',
+                title: 'Browse',
+                desc: 'Explore hundreds of verified listings. Filter by city, type, price range, and more.',
+                accent: 'rgba(245,158,11,0.08)',
               },
               {
-                step: '02', icon: '', title: 'Connect',
-                desc: 'Click "Go for Deal" and chat directly with the car owner on WhatsApp — no middlemen.',
+                step: '02',
+                title: 'Connect',
+                desc: 'Click "Go for Deal" to chat directly with the car owner on WhatsApp. No middlemen.',
+                accent: 'rgba(249,115,22,0.08)',
               },
               {
-                step: '03', icon: '', title: 'Drive',
-                desc: 'Rent instantly with our date picker, or negotiate a purchase deal on your terms.',
+                step: '03',
+                title: 'Drive',
+                desc: 'Rent instantly with our date picker, or negotiate a purchase on your own terms.',
+                accent: 'rgba(217,119,6,0.08)',
               },
-            ].map(({ step, icon, title, desc }) => (
-              <div key={step} className="card anim-fade-up" style={{ padding: '32px 28px', textAlign: 'center' }}>
+            ].map(({ step, title, desc, accent }) => (
+              <div
+                key={step}
+                style={{
+                  background: 'var(--bg)',
+                  padding: '48px 36px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: 20,
+                  position: 'relative',
+                  overflow: 'hidden',
+                }}
+              >
+                {/* Background step number */}
                 <div style={{
-                  width: 64, height: 64, borderRadius: 18,
-                  background: 'linear-gradient(135deg, rgba(245,158,11,0.15), rgba(245,158,11,0.05))',
-                  border: '1px solid rgba(245,158,11,0.2)',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  fontSize: 28, margin: '0 auto 20px',
+                  position: 'absolute', top: -10, right: -5,
+                  fontSize: 120, fontWeight: 900,
+                  color: accent,
+                  lineHeight: 1,
+                  userSelect: 'none',
+                  pointerEvents: 'none',
                 }}>
-                  {icon}
+                  {step}
                 </div>
-                <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--accent)', letterSpacing: '.5px', marginBottom: 8 }}>
-                  STEP {step}
+
+                <div style={{ position: 'relative', zIndex: 1 }}>
+                  <div style={{
+                    fontSize: 11, fontWeight: 800, color: 'var(--accent)',
+                    letterSpacing: '2px', textTransform: 'uppercase', marginBottom: 14,
+                  }}>
+                    Step {step}
+                  </div>
+                  <h3 style={{ fontSize: 22, fontWeight: 800, color: 'var(--txt)', marginBottom: 12, letterSpacing: '-0.01em' }}>
+                    {title}
+                  </h3>
+                  <p style={{ fontSize: 14, color: 'var(--txt2)', lineHeight: 1.7 }}>
+                    {desc}
+                  </p>
                 </div>
-                <h3 style={{ fontSize: 20, fontWeight: 800, marginBottom: 10, color: 'var(--txt)' }}>{title}</h3>
-                <p style={{ fontSize: 14, color: 'var(--txt2)', lineHeight: 1.6 }}>{desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── Plans ───────────────────────────────────────────────────────────── */}
+      {/* ━━ SPLIT VALUE PROPOSITION ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <section className="section">
         <div className="container">
-          <div style={{ textAlign: 'center', marginBottom: 56 }}>
-            <h2 className="section-title" style={{ marginBottom: 12 }}>
-              Choose Your <span className="gradient-text">Plan</span>
-            </h2>
-            <p className="section-sub">Start free. Upgrade when you're ready to sell.</p>
-          </div>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 24, maxWidth: 700, margin: '0 auto' }}>
-            {/* Free */}
-            <div className="card" style={{ padding: '32px 28px' }}>
-              <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--txt2)', marginBottom: 12, textTransform: 'uppercase', letterSpacing: '.5px' }}>Free Plan</div>
-              <div style={{ fontSize: 36, fontWeight: 900, color: 'var(--txt)', marginBottom: 4 }}>$0</div>
-              <div style={{ fontSize: 13, color: 'var(--txt3)', marginBottom: 28 }}>Forever free</div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 28 }}>
-                {['Browse all car listings', 'WhatsApp dealer directly', 'Rent cars instantly', 'View car details & specs'].map((f) => (
-                  <div key={f} style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 14, color: 'var(--txt2)' }}>
-                    <span style={{ color: 'var(--success)' }}>✓</span> {f}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: '1fr 1fr',
+            gap: 24,
+          }}>
+            {/* For Buyers */}
+            <div
+              style={{
+                borderRadius: 24,
+                border: '1px solid var(--border)',
+                padding: '48px 40px',
+                background: 'var(--bg)',
+                position: 'relative',
+                overflow: 'hidden',
+              }}
+            >
+              <div style={{
+                position: 'absolute', top: 0, left: 0, right: 0, height: 3,
+                background: 'linear-gradient(90deg, var(--accent), transparent)',
+              }} />
+              <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--accent)', textTransform: 'uppercase', letterSpacing: '1.5px', marginBottom: 16 }}>
+                For Buyers & Renters
+              </div>
+              <h3 style={{ fontSize: 24, fontWeight: 800, color: 'var(--txt)', marginBottom: 16, lineHeight: 1.25, letterSpacing: '-0.02em' }}>
+                Find your perfect car in minutes
+              </h3>
+              <p style={{ fontSize: 14, color: 'var(--txt2)', lineHeight: 1.7, marginBottom: 28 }}>
+                Browse premium listings from verified dealers. Rent instantly or connect directly via WhatsApp to negotiate your deal.
+              </p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 14, marginBottom: 32 }}>
+                {[
+                  'Browse verified dealer listings',
+                  'Direct WhatsApp connection',
+                  'Instant rental booking',
+                  'No platform fees',
+                ].map((item) => (
+                  <div key={item} style={{ display: 'flex', alignItems: 'center', gap: 12, fontSize: 14 }}>
+                    <div style={{
+                      width: 20, height: 20, borderRadius: '50%',
+                      background: 'rgba(245,158,11,0.1)',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      fontSize: 10, color: 'var(--accent)', fontWeight: 700,
+                      flexShrink: 0,
+                    }}>✓</div>
+                    <span style={{ color: 'var(--txt2)' }}>{item}</span>
                   </div>
                 ))}
               </div>
-              <Link to="/register" className="btn btn-outline" style={{ width: '100%', textDecoration: 'none', justifyContent: 'center' }}>
-                Get Started Free
+              <Link to="/cars" className="btn btn-primary" style={{ textDecoration: 'none' }}>
+                Browse Cars
               </Link>
             </div>
 
-            {/* Dealer */}
+            {/* For Dealers */}
             <div
-              className="card glow-amber"
-              style={{ padding: '32px 28px', borderColor: 'rgba(245,158,11,0.3)', position: 'relative', background: 'rgba(245,158,11,0.03)' }}
+              style={{
+                borderRadius: 24,
+                border: '1px solid rgba(245,158,11,0.2)',
+                padding: '48px 40px',
+                background: 'rgba(245,158,11,0.02)',
+                position: 'relative',
+                overflow: 'hidden',
+              }}
             >
-              <div style={{ position: 'absolute', top: -12, left: '50%', transform: 'translateX(-50%)' }}>
-                <span className="badge badge-amber">MOST POPULAR</span>
+              <div style={{
+                position: 'absolute', top: 0, left: 0, right: 0, height: 3,
+                background: 'linear-gradient(90deg, #f59e0b, #d97706)',
+              }} />
+              <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--accent)', textTransform: 'uppercase', letterSpacing: '1.5px', marginBottom: 16 }}>
+                For Dealers
               </div>
-              <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--accent)', marginBottom: 12, textTransform: 'uppercase', letterSpacing: '.5px' }}>Dealer Plan</div>
-              <div style={{ fontSize: 36, fontWeight: 900, color: 'var(--txt)', marginBottom: 4 }}>Free<span style={{ fontSize: 16, color: 'var(--txt2)' }}> to start</span></div>
-              <div style={{ fontSize: 13, color: 'var(--txt3)', marginBottom: 28 }}>Premium listings</div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 28 }}>
+              <h3 style={{ fontSize: 24, fontWeight: 800, color: 'var(--txt)', marginBottom: 16, lineHeight: 1.25, letterSpacing: '-0.02em' }}>
+                Grow your dealership online
+              </h3>
+              <p style={{ fontSize: 14, color: 'var(--txt2)', lineHeight: 1.7, marginBottom: 28 }}>
+                Create your dealer profile and start listing cars in minutes. Manage your inventory, track views, and receive inquiries directly on WhatsApp.
+              </p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 14, marginBottom: 32 }}>
                 {[
-                  'Everything in Free',
-                  'List unlimited cars',
-                  'Dealer dashboard',
-                  'Analytics & insights',
-                  'Priority placement',
-                  'WhatsApp deal button',
-                ].map((f) => (
-                  <div key={f} style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 14, color: 'var(--txt2)' }}>
-                    <span style={{ color: 'var(--accent)' }}>✓</span> {f}
+                  'Free dealer account',
+                  'Unlimited listings',
+                  'Dashboard analytics',
+                  'WhatsApp deal notifications',
+                ].map((item) => (
+                  <div key={item} style={{ display: 'flex', alignItems: 'center', gap: 12, fontSize: 14 }}>
+                    <div style={{
+                      width: 20, height: 20, borderRadius: '50%',
+                      background: 'rgba(245,158,11,0.15)',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      fontSize: 10, color: 'var(--accent)', fontWeight: 700,
+                      flexShrink: 0,
+                    }}>✓</div>
+                    <span style={{ color: 'var(--txt2)' }}>{item}</span>
                   </div>
                 ))}
               </div>
               <Link
                 to="/register"
                 className="btn btn-primary"
-                style={{ width: '100%', textDecoration: 'none', justifyContent: 'center' }}
-                onClick={() => {
-                  sessionStorage.setItem('preselect_role', 'dealer');
-                }}
+                style={{ textDecoration: 'none' }}
+                onClick={() => sessionStorage.setItem('preselect_role', 'dealer')}
               >
                 Become a Dealer
               </Link>
@@ -283,20 +352,53 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* ── CTA Banner ──────────────────────────────────────────────────────── */}
-      <section style={{ background: 'linear-gradient(135deg, #92400e, #78350f, #451a03)', padding: '80px 0' }}>
+      {/* ━━ TRUST BANNER ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+      <section style={{ padding: '80px 0', background: 'var(--bg2)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
+        <div className="container">
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+            gap: 48,
+            textAlign: 'center',
+          }}>
+            {[
+              { title: 'Verified Dealers', desc: 'Every dealer is verified before listing. Your trust matters.' },
+              { title: 'Direct Contact', desc: 'No gatekeeping. Chat directly with car owners via WhatsApp.' },
+              { title: 'Instant Booking', desc: 'Pick your dates and confirm a rental in under 60 seconds.' },
+              { title: 'Zero Fees', desc: 'No hidden charges. No platform cuts. Just deals between people.' },
+            ].map(({ title, desc }) => (
+              <div key={title}>
+                <h4 style={{ fontSize: 15, fontWeight: 700, color: 'var(--txt)', marginBottom: 8 }}>{title}</h4>
+                <p style={{ fontSize: 13, color: 'var(--txt3)', lineHeight: 1.7 }}>{desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ━━ CTA BANNER ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+      <section style={{ padding: '100px 0' }}>
         <div className="container" style={{ textAlign: 'center' }}>
-          <h2 style={{ fontSize: 'clamp(28px, 5vw, 48px)', fontWeight: 900, color: '#fff', marginBottom: 16, letterSpacing: '-.02em' }}>
-            Ready to Drive Your Dream Car?
+          <p style={{ fontSize: 12, fontWeight: 700, color: 'var(--accent)', textTransform: 'uppercase', letterSpacing: '1.5px', marginBottom: 16 }}>Get Started Today</p>
+          <h2 style={{
+            fontSize: 'clamp(28px, 5vw, 48px)',
+            fontWeight: 900,
+            color: 'var(--txt)',
+            marginBottom: 16,
+            letterSpacing: '-0.03em',
+            lineHeight: 1.1,
+          }}>
+            Ready to drive your<br />
+            <span className="gradient-text">dream car?</span>
           </h2>
-          <p style={{ fontSize: 17, color: 'rgba(255,255,255,0.7)', marginBottom: 36 }}>
-            Join thousands of satisfied customers across Nigeria
+          <p style={{ fontSize: 16, color: 'var(--txt2)', marginBottom: 40, maxWidth: 460, margin: '0 auto 40px' }}>
+            Join thousands of satisfied customers across Nigeria. Whether you're buying, selling, or renting — start here.
           </p>
-          <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link to="/cars" className="btn btn-lg" style={{ textDecoration: 'none', background: '#fff', color: '#000', fontWeight: 700 }}>
-              Browse Cars Now
+          <div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap' }}>
+            <Link to="/cars" className="btn btn-primary btn-lg" style={{ textDecoration: 'none', minWidth: 180 }}>
+              Browse Cars
             </Link>
-            <Link to="/register" className="btn btn-outline btn-lg" style={{ textDecoration: 'none', borderColor: 'rgba(255,255,255,0.4)', color: '#fff' }}>
+            <Link to="/register" className="btn btn-outline btn-lg" style={{ textDecoration: 'none', minWidth: 180 }}>
               Create Account
             </Link>
           </div>
@@ -311,6 +413,15 @@ export default function Landing() {
           onSuccess={() => setSelectedCar(null)}
         />
       )}
+
+      {/* Responsive overrides */}
+      <style>{`
+        @media (max-width: 768px) {
+          section [style*="grid-template-columns: repeat(4"] { grid-template-columns: repeat(2, 1fr) !important; }
+          section [style*="grid-template-columns: repeat(3"] { grid-template-columns: 1fr !important; }
+          section [style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; }
+        }
+      `}</style>
     </div>
   );
 }
