@@ -6,7 +6,7 @@ import RentalModal from '../components/RentalModal';
 import { useAuth } from '../context/AuthContext';
 
 const fuelIcons: Record<string, string> = {
-  petrol: '⛽', diesel: '🛢️', electric: '⚡', hybrid: '🔋', hydrogen: '💨',
+  petrol: '', diesel: '', electric: '', hybrid: '', hydrogen: '',
 };
 
 const conditionLabel: Record<string, string> = {
@@ -86,7 +86,7 @@ export default function CarDetail() {
   if (!car) {
     return (
       <div style={{ minHeight: 'calc(100vh - 64px)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: 16 }}>
-        <div style={{ fontSize: 48 }}>🚗</div>
+        <div style={{ fontSize: 18, fontWeight: 700, color: 'var(--txt2)' }}>Car not found</div>
         <h2 style={{ color: 'var(--txt)' }}>Car not found</h2>
         <Link to="/cars" className="btn btn-primary" style={{ textDecoration: 'none' }}>Browse All Cars</Link>
       </div>
@@ -190,14 +190,14 @@ export default function CarDetail() {
                 <h2 style={{ fontSize: 17, fontWeight: 700, color: 'var(--txt)', marginBottom: 14 }}>Features</h2>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
                   {car.features.map((f) => (
-                    <span key={f} className="tag">✓ {f}</span>
+                    <span key={f} className="tag">{f}</span>
                   ))}
                 </div>
               </div>
             )}
 
             <p style={{ marginTop: 20, fontSize: 12, color: 'var(--txt3)' }}>
-              👁 {car.views} views
+              {car.views} views
             </p>
           </div>
 
@@ -214,7 +214,7 @@ export default function CarDetail() {
               <h1 style={{ fontSize: 22, fontWeight: 800, color: 'var(--txt)', marginBottom: 4, lineHeight: 1.2 }}>{car.title}</h1>
               <p style={{ fontSize: 14, color: 'var(--txt2)', marginBottom: 20 }}>
                 {car.make} {car.model} · {car.year}
-                {car.city && ` · 📍 ${car.city}`}
+                {car.city && ` · ${car.city}`}
               </p>
 
               {/* Price */}
@@ -246,7 +246,7 @@ export default function CarDetail() {
                     onClick={handleWhatsApp}
                     style={{ width: '100%', fontSize: 15 }}
                   >
-                    💬 Go for Deal on WhatsApp
+                    Go for Deal on WhatsApp
                   </button>
                 ) : (
                   <div className="alert alert-info">No contact number available</div>
@@ -265,12 +265,12 @@ export default function CarDetail() {
                     }}
                     style={{ width: '100%', fontSize: 15 }}
                   >
-                    🚗 Rent Now
+                    Rent Now
                   </button>
                 )}
 
                 {rentalSuccess && (
-                  <div className="alert alert-success">✅ Rental confirmed! The dealer will contact you shortly.</div>
+                  <div className="alert alert-success">Rental confirmed! The dealer will contact you shortly.</div>
                 )}
               </div>
             </div>
@@ -290,10 +290,10 @@ export default function CarDetail() {
                   </div>
                   <div>
                     <div style={{ fontSize: 15, fontWeight: 700, color: 'var(--txt)' }}>{dealer.business_name}</div>
-                    {dealer.city && <div style={{ fontSize: 13, color: 'var(--txt3)' }}>📍 {dealer.city}</div>}
+                    {dealer.city && <div style={{ fontSize: 13, color: 'var(--txt3)' }}>{dealer.city}</div>}
                     {dealer.rating > 0 && (
                       <div style={{ fontSize: 13, color: 'var(--accent)' }}>
-                        {'⭐'.repeat(Math.round(dealer.rating))} {Number(dealer.rating).toFixed(1)}
+                        {Number(dealer.rating).toFixed(1)} rating
                       </div>
                     )}
                   </div>

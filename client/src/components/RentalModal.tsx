@@ -75,7 +75,7 @@ export default function RentalModal({ car, onClose, onSuccess }: Props) {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 24 }}>
           <div>
             <h2 style={{ fontSize: 20, fontWeight: 800, color: 'var(--txt)', marginBottom: 4 }}>
-              🚗 Rent This Car
+              Rent This Car
             </h2>
             <p style={{ fontSize: 13, color: 'var(--txt2)' }}>
               {car.year} {car.make} {car.model}
@@ -91,7 +91,7 @@ export default function RentalModal({ car, onClose, onSuccess }: Props) {
 
         {!isAuthenticated ? (
           <div style={{ textAlign: 'center', padding: '20px 0' }}>
-            <div style={{ fontSize: 40, marginBottom: 12 }}>🔒</div>
+            <div style={{ fontSize: 20, marginBottom: 12, color: 'var(--txt3)' }}>Locked</div>
             <p style={{ color: 'var(--txt2)', marginBottom: 20, fontSize: 14 }}>
               Please sign in to rent this car
             </p>
@@ -101,7 +101,7 @@ export default function RentalModal({ car, onClose, onSuccess }: Props) {
           </div>
         ) : success ? (
           <div style={{ textAlign: 'center', padding: '20px 0' }}>
-            <div style={{ fontSize: 56, marginBottom: 16 }}>✅</div>
+            <div style={{ fontSize: 20, marginBottom: 16, color: 'var(--success)' }}>Success</div>
             <h3 style={{ fontSize: 18, fontWeight: 700, color: 'var(--success)', marginBottom: 8 }}>
               Rental Confirmed!
             </h3>
@@ -182,7 +182,7 @@ export default function RentalModal({ car, onClose, onSuccess }: Props) {
                 disabled={loading || totalDays < 1}
                 style={{ flex: 2 }}
               >
-                {loading ? <><span className="spinner" />Confirming…</> : `✅ Confirm Rental — $${totalAmount.toLocaleString()}`}
+                {loading ? <><span className="spinner" />Confirming…</> : `Confirm Rental — $${totalAmount.toLocaleString()}`}
               </button>
             </div>
           </form>

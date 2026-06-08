@@ -298,7 +298,7 @@ export default function UploadCar() {
                     <h3 style={{ fontSize: 18, fontWeight: 700, color: 'var(--txt)', marginBottom: 4 }}>{form.title || 'Untitled'}</h3>
                     <p style={{ color: 'var(--txt2)', fontSize: 14, marginBottom: 16 }}>
                       {form.make} {form.model} · {form.year}
-                      {form.city && ` · 📍 ${form.city}`}
+                      {form.city && ` · ${form.city}`}
                     </p>
                     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, fontSize: 13 }}>
                       {form.dailyRate && <div style={{ color: 'var(--txt2)' }}>Rental: <strong style={{ color: 'var(--accent)' }}>${form.dailyRate}/day</strong></div>}
@@ -314,7 +314,7 @@ export default function UploadCar() {
                       </div>
                     )}
                     <div style={{ marginTop: 14, fontSize: 12, color: 'var(--txt3)' }}>
-                      📸 {images.length} photo{images.length !== 1 ? 's' : ''} selected
+                      {images.length} photo{images.length !== 1 ? 's' : ''} selected
                     </div>
                   </div>
                 </div>
@@ -343,7 +343,7 @@ export default function UploadCar() {
                   disabled={loading}
                   style={{ flex: 2, fontSize: 15 }}
                 >
-                  {loading ? <><span className="spinner" /> Publishing…</> : '🚀 Publish Listing'}
+                  {loading ? <><span className="spinner" /> Publishing…</> : 'Publish Listing'}
                 </button>
               )}
             </div>

@@ -43,7 +43,7 @@ export default function ImageUpload({ files, onChange, maxFiles = 6 }: Props) {
           transition: 'all .2s ease',
         }}
       >
-        <div style={{ fontSize: 36, marginBottom: 10 }}>📸</div>
+        <div style={{ fontSize: 24, marginBottom: 10, color: 'var(--txt3)' }}>Upload</div>
         <p style={{ fontSize: 14, color: 'var(--txt2)', marginBottom: 4 }}>
           <strong style={{ color: 'var(--accent)' }}>Click to upload</strong> or drag & drop
         </p>

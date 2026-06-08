@@ -40,7 +40,7 @@ export default function Landing() {
                 background: 'rgba(245,158,11,0.1)', border: '1px solid rgba(245,158,11,0.2)',
                 fontSize: 13, fontWeight: 600, color: 'var(--accent)',
               }}>
-                🏎️ Premium Automotive Platform
+                Premium Automotive Platform
               </span>
             </div>
 
@@ -74,13 +74,13 @@ export default function Landing() {
                 Explore Cars →
               </Link>
               <Link to="/register" className="btn btn-outline btn-lg" style={{ textDecoration: 'none', minWidth: 180 }}>
-                🏢 List Your Car
+                List Your Car
               </Link>
             </div>
 
             {/* Trust indicators */}
             <div className="anim-fade-up delay-4" style={{ display: 'flex', justifyContent: 'center', gap: 24, flexWrap: 'wrap' }}>
-              {['✅ Verified Dealers', '💬 WhatsApp Deals', '🚗 Instant Rentals'].map((item) => (
+              {['Verified Dealers', 'WhatsApp Deals', 'Instant Rentals'].map((item) => (
                 <span key={item} style={{ fontSize: 13, color: 'var(--txt2)', display: 'flex', alignItems: 'center', gap: 4 }}>
                   {item}
                 </span>
@@ -109,10 +109,10 @@ export default function Landing() {
             }}
           >
             {[
-              { value: '500+', label: 'Cars Listed', icon: '🚗' },
-              { value: '200+', label: 'Verified Dealers', icon: '✅' },
-              { value: '1,000+', label: 'Deals Completed', icon: '🤝' },
-              { value: '50+', label: 'Cities Covered', icon: '📍' },
+              { value: '500+', label: 'Cars Listed', icon: '' },
+              { value: '200+', label: 'Verified Dealers', icon: '' },
+              { value: '1,000+', label: 'Deals Completed', icon: '' },
+              { value: '50+', label: 'Cities Covered', icon: '' },
             ].map(({ value, label, icon }) => (
               <div key={label}>
                 <div style={{ fontSize: 28, fontWeight: 900, color: 'var(--accent)', marginBottom: 4, letterSpacing: '-.02em' }}>
@@ -161,7 +161,7 @@ export default function Landing() {
             </div>
           ) : (
             <div style={{ textAlign: 'center', padding: '60px 0', color: 'var(--txt2)' }}>
-              <div style={{ fontSize: 48, marginBottom: 16 }}>🚗</div>
+              <div style={{ fontSize: 18, fontWeight: 700, marginBottom: 16, color: 'var(--txt2)' }}>No cars yet</div>
               <p>No cars listed yet. Be the first!</p>
               <Link to="/register" className="btn btn-primary" style={{ marginTop: 16, textDecoration: 'none' }}>List a Car</Link>
             </div>
@@ -182,15 +182,15 @@ export default function Landing() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 32 }}>
             {[
               {
-                step: '01', icon: '🔍', title: 'Browse',
+                step: '01', icon: '', title: 'Browse',
                 desc: 'Explore hundreds of verified listings — filter by city, type, price, and more.',
               },
               {
-                step: '02', icon: '💬', title: 'Connect',
+                step: '02', icon: '', title: 'Connect',
                 desc: 'Click "Go for Deal" and chat directly with the car owner on WhatsApp — no middlemen.',
               },
               {
-                step: '03', icon: '🚗', title: 'Drive',
+                step: '03', icon: '', title: 'Drive',
                 desc: 'Rent instantly with our date picker, or negotiate a purchase deal on your terms.',
               },
             ].map(({ step, icon, title, desc }) => (
@@ -249,7 +249,7 @@ export default function Landing() {
               style={{ padding: '32px 28px', borderColor: 'rgba(245,158,11,0.3)', position: 'relative', background: 'rgba(245,158,11,0.03)' }}
             >
               <div style={{ position: 'absolute', top: -12, left: '50%', transform: 'translateX(-50%)' }}>
-                <span className="badge badge-amber">⭐ MOST POPULAR</span>
+                <span className="badge badge-amber">MOST POPULAR</span>
               </div>
               <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--accent)', marginBottom: 12, textTransform: 'uppercase', letterSpacing: '.5px' }}>Dealer Plan</div>
               <div style={{ fontSize: 36, fontWeight: 900, color: 'var(--txt)', marginBottom: 4 }}>Free<span style={{ fontSize: 16, color: 'var(--txt2)' }}> to start</span></div>
@@ -276,7 +276,7 @@ export default function Landing() {
                   sessionStorage.setItem('preselect_role', 'dealer');
                 }}
               >
-                🏢 Become a Dealer
+                Become a Dealer
               </Link>
             </div>
           </div>

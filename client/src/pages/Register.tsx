@@ -67,7 +67,7 @@ export default function Register() {
         {/* Logo */}
         <div style={{ textAlign: 'center', marginBottom: 32 }}>
           <Link to="/" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 8 }}>
-            <div style={{ width: 40, height: 40, background: 'linear-gradient(135deg,#f59e0b,#d97706)', borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 20 }}>🏎</div>
+            <div style={{ width: 40, height: 40, background: 'linear-gradient(135deg,#f59e0b,#d97706)', borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 14, fontWeight: 800, color: '#000' }}>EM</div>
             <span style={{ fontWeight: 800, fontSize: 20, background: 'linear-gradient(135deg,#f59e0b,#fbbf24)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>EliteMotors</span>
           </Link>
           <h1 style={{ fontSize: 26, fontWeight: 800, color: 'var(--txt)', marginTop: 20, marginBottom: 6 }}>Create your account</h1>
@@ -94,7 +94,7 @@ export default function Register() {
                   fontFamily: 'var(--font)', transition: 'all .2s',
                 }}
               >
-                {r === 'renter' ? '🔍 Buyer / Renter' : '🏢 Car Dealer'}
+                {r === 'renter' ? 'Buyer / Renter' : 'Car Dealer'}
               </button>
             ))}
           </div>
@@ -151,7 +151,7 @@ export default function Register() {
             >
               {loading
                 ? <><span className="spinner" /> Creating account…</>
-                : role === 'dealer' ? '🏢 Create Dealer Account →' : '🚀 Get Started Free →'}
+                : role === 'dealer' ? 'Create Dealer Account →' : 'Get Started Free →'}
             </button>
           </form>
         </div>

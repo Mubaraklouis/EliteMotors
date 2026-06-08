@@ -8,7 +8,7 @@ interface Props {
 }
 
 const fuelIcons: Record<string, string> = {
-  petrol: '⛽', diesel: '🛢️', electric: '⚡', hybrid: '🔋', hydrogen: '💨',
+  petrol: '', diesel: '', electric: '', hybrid: '', hydrogen: '',
 };
 
 const listingBadge = (type: string) => {
@@ -66,7 +66,7 @@ export default function CarCard({ car, onRent }: Props) {
           </div>
           {car.is_featured && (
             <div style={{ position: 'absolute', bottom: 10, left: 10 }}>
-              <span className="badge badge-amber">⭐ Featured</span>
+              <span className="badge badge-amber">Featured</span>
             </div>
           )}
         </div>
@@ -88,17 +88,17 @@ export default function CarCard({ car, onRent }: Props) {
           {/* Specs row */}
           <div style={{ display: 'flex', gap: 12, marginBottom: 14, flexWrap: 'wrap' }}>
             <span style={{ fontSize: 12, color: 'var(--txt3)', display: 'flex', alignItems: 'center', gap: 3 }}>
-              {fuelIcons[car.fuel_type] ?? '⛽'} {car.fuel_type}
+              {fuelIcons[car.fuel_type] ?? ''} {car.fuel_type}
             </span>
             <span style={{ fontSize: 12, color: 'var(--txt3)', display: 'flex', alignItems: 'center', gap: 3 }}>
-              ⚙️ {car.transmission}
+              {car.transmission}
             </span>
             <span style={{ fontSize: 12, color: 'var(--txt3)', display: 'flex', alignItems: 'center', gap: 3 }}>
-              👤 {car.seats} seats
+              {car.seats} seats
             </span>
             {car.city && (
               <span style={{ fontSize: 12, color: 'var(--txt3)', display: 'flex', alignItems: 'center', gap: 3 }}>
-                📍 {car.city}
+                {car.city}
               </span>
             )}
           </div>
@@ -130,7 +130,7 @@ export default function CarCard({ car, onRent }: Props) {
               onClick={handleDealClick}
               style={{ flex: 1 }}
             >
-              💬 Deal
+              Deal
             </button>
             {(car.listing_type === 'rent' || car.listing_type === 'both') && car.status === 'available' && (
               <button
@@ -138,14 +138,14 @@ export default function CarCard({ car, onRent }: Props) {
                 onClick={handleRentClick}
                 style={{ flex: 1 }}
               >
-                🚗 Rent
+                Rent
               </button>
             )}
           </div>
 
           {/* Views */}
           <div style={{ marginTop: 10, fontSize: 11, color: 'var(--txt3)' }}>
-            👁 {car.views} views
+            {car.views} views
           </div>
         </div>
       </div>

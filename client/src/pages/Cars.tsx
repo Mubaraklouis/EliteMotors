@@ -120,7 +120,7 @@ export default function Cars() {
           </>
         ) : (
           <div style={{ textAlign: 'center', padding: '80px 20px' }}>
-            <div style={{ fontSize: 56, marginBottom: 16 }}>🚗</div>
+            <div style={{ fontSize: 18, fontWeight: 700, marginBottom: 16, color: 'var(--txt2)' }}>No results</div>
             <h3 style={{ fontSize: 20, fontWeight: 700, color: 'var(--txt)', marginBottom: 8 }}>No cars found</h3>
             <p style={{ color: 'var(--txt2)', marginBottom: 24, fontSize: 14 }}>Try adjusting your search or clearing the filters</p>
             <button className="btn btn-primary" onClick={() => setFilters({ page: 1, limit: 12 })}>

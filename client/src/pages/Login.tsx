@@ -53,7 +53,7 @@ export default function Login() {
 
         <div style={{ position: 'relative', zIndex: 1 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 48 }}>
-            <div style={{ width: 40, height: 40, background: 'linear-gradient(135deg,#f59e0b,#d97706)', borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 20 }}>🏎</div>
+            <div style={{ width: 40, height: 40, background: 'linear-gradient(135deg,#f59e0b,#d97706)', borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 14, fontWeight: 800, color: '#000' }}>EM</div>
             <span style={{ fontWeight: 800, fontSize: 20, background: 'linear-gradient(135deg,#f59e0b,#fbbf24)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>EliteMotors</span>
           </div>
 
@@ -121,7 +121,7 @@ export default function Login() {
                   background: 'none', border: 'none', color: 'var(--txt3)', cursor: 'pointer', fontSize: 16,
                 }}
               >
-                {showPass ? '🙈' : '👁'}
+                {showPass ? 'Hide' : 'Show'}
               </button>
             </div>
           </div>
@@ -140,7 +140,7 @@ export default function Login() {
         </form>
 
         <div style={{ marginTop: 32, padding: '20px', background: 'rgba(245,158,11,0.05)', borderRadius: 12, border: '1px solid rgba(245,158,11,0.1)', fontSize: 13, color: 'var(--txt2)' }}>
-          <strong style={{ color: 'var(--accent)' }}>🏢 Are you a dealer?</strong><br />
+          <strong style={{ color: 'var(--accent)' }}>Are you a dealer?</strong><br />
           Register as a dealer to list your cars and manage your inventory.{' '}
           <Link to="/register" style={{ color: 'var(--accent)', textDecoration: 'none', fontWeight: 600 }}>
             Create dealer account →

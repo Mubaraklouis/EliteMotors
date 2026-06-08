@@ -56,7 +56,7 @@ export default function Dashboard() {
                 <h1 style={{ fontSize: 26, fontWeight: 800, color: 'var(--txt)' }}>
                   Welcome back, <span className="gradient-text">{dealer?.business_name ?? user?.full_name ?? 'Dealer'}</span>
                 </h1>
-                <span className="badge badge-amber">⭐ Dealer</span>
+                <span className="badge badge-amber">Dealer</span>
               </div>
               <p style={{ fontSize: 14, color: 'var(--txt2)' }}>
                 Manage your listings, track performance, and connect with buyers.
@@ -72,10 +72,10 @@ export default function Dashboard() {
       <div className="container" style={{ paddingTop: 36 }}>
         {/* Stats */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 20, marginBottom: 40 }}>
-          <StatsCard title="Total Listings" value={cars.length} icon="🚗" />
-          <StatsCard title="Active Listings" value={activeListings} icon="✅" color="var(--success)" />
-          <StatsCard title="Currently Rented" value={rentedCars} icon="🔑" color="var(--warn)" />
-          <StatsCard title="Total Views" value={totalViews} icon="👁" color="#60a5fa" />
+          <StatsCard title="Total Listings" value={cars.length} icon="" />
+          <StatsCard title="Active Listings" value={activeListings} icon="" color="var(--success)" />
+          <StatsCard title="Currently Rented" value={rentedCars} icon="" color="var(--warn)" />
+          <StatsCard title="Total Views" value={totalViews} icon="" color="#60a5fa" />
         </div>
 
         {/* Success message */}
@@ -97,7 +97,7 @@ export default function Dashboard() {
           </div>
         ) : cars.length === 0 ? (
           <div className="card" style={{ padding: '56px 32px', textAlign: 'center' }}>
-            <div style={{ fontSize: 56, marginBottom: 16 }}>🚗</div>
+            <div style={{ fontSize: 18, fontWeight: 700, marginBottom: 16, color: 'var(--txt2)' }}>No listings</div>
             <h3 style={{ fontSize: 18, fontWeight: 700, color: 'var(--txt)', marginBottom: 8 }}>No listings yet</h3>
             <p style={{ color: 'var(--txt2)', marginBottom: 24, fontSize: 14 }}>Upload your first car to start receiving inquiries</p>
             <Link to="/dashboard/upload" className="btn btn-primary" style={{ textDecoration: 'none' }}>
@@ -161,7 +161,7 @@ export default function Dashboard() {
                         }`}>{car.status}</span>
                       </td>
                       <td style={{ padding: '14px 18px', fontSize: 13, color: 'var(--txt3)' }}>
-                        👁 {car.views}
+                        {car.views}
                       </td>
                       <td style={{ padding: '14px 18px' }}>
                         <div style={{ display: 'flex', gap: 6 }}>

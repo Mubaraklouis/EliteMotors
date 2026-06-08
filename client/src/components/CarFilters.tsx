@@ -19,7 +19,7 @@ export default function CarFiltersBar({ filters, onChange }: Props) {
     >
       {/* Search */}
       <div style={{ position: 'relative', flex: '1 1 220px', minWidth: 200 }}>
-        <span style={{ position: 'absolute', left: 12, top: '50%', transform: 'translateY(-50%)', fontSize: 15, pointerEvents: 'none', color: 'var(--txt3)' }}>🔍</span>
+        <span style={{ position: 'absolute', left: 12, top: '50%', transform: 'translateY(-50%)', fontSize: 13, pointerEvents: 'none', color: 'var(--txt3)' }}>Search</span>
         <input
           type="text"
           className="form-input"
@@ -44,7 +44,7 @@ export default function CarFiltersBar({ filters, onChange }: Props) {
 
       {/* City */}
       <div style={{ position: 'relative', flex: '0 1 160px', minWidth: 130 }}>
-        <span style={{ position: 'absolute', left: 12, top: '50%', transform: 'translateY(-50%)', fontSize: 13, pointerEvents: 'none', color: 'var(--txt3)' }}>📍</span>
+        <span style={{ position: 'absolute', left: 12, top: '50%', transform: 'translateY(-50%)', fontSize: 11, pointerEvents: 'none', color: 'var(--txt3)' }}>City</span>
         <input
           type="text"
           className="form-input"

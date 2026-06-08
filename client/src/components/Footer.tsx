@@ -14,7 +14,7 @@ export default function Footer() {
                 width: 32, height: 32,
                 background: 'linear-gradient(135deg,#f59e0b,#d97706)',
                 borderRadius: 8, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 16,
-              }}>🏎</div>
+              }}>EM</div>
               <span style={{ fontWeight: 800, fontSize: 17, background: 'linear-gradient(135deg,#f59e0b,#fbbf24)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
                 EliteMotors
               </span>
@@ -67,10 +67,10 @@ export default function Footer() {
             <h4 style={{ fontSize: 13, fontWeight: 700, color: 'var(--txt)', marginBottom: 16, textTransform: 'uppercase', letterSpacing: '.5px' }}>Connect</h4>
             <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
               {[
-                { emoji: '💬', label: 'WhatsApp' },
-                { emoji: '📧', label: 'Email' },
-                { emoji: '🐦', label: 'Twitter' },
-              ].map(({ emoji, label }) => (
+                { label: 'WhatsApp' },
+                { label: 'Email' },
+                { label: 'Twitter' },
+              ].map(({ label }) => (
                 <button key={label} style={{
                   background: 'rgba(255,255,255,0.04)',
                   border: '1px solid var(--border)',
@@ -79,7 +79,7 @@ export default function Footer() {
                   cursor: 'pointer', fontFamily: 'var(--font)',
                   display: 'flex', alignItems: 'center', gap: 5,
                 }}>
-                  {emoji} {label}
+                  {label}
                 </button>
               ))}
             </div>
@@ -91,7 +91,7 @@ export default function Footer() {
             © {year} EliteMotors. All rights reserved.
           </p>
           <p style={{ fontSize: 12, color: 'var(--txt3)' }}>
-            Built with ❤️ for car enthusiasts
+            Built for car enthusiasts
           </p>
         </div>
       </div>

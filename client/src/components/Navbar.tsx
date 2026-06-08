@@ -53,7 +53,7 @@ export default function Navbar() {
               borderRadius: 8,
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               fontSize: 16,
-            }}>🏎</div>
+            }}>EM</div>
             <span style={{
               fontWeight: 800, fontSize: 18, letterSpacing: '-.02em',
               background: 'linear-gradient(135deg,#f59e0b,#fbbf24)',
@@ -163,7 +163,7 @@ export default function Navbar() {
                         <div style={{ fontSize: 13, fontWeight: 600, color: 'var(--txt)' }}>{user?.full_name}</div>
                         <div style={{ fontSize: 12, color: 'var(--txt3)', marginTop: 2 }}>{user?.email}</div>
                         {isDealer && (
-                          <span className="badge badge-amber" style={{ marginTop: 6 }}>⭐ Dealer</span>
+                          <span className="badge badge-amber" style={{ marginTop: 6 }}>Dealer</span>
                         )}
                       </div>
 
@@ -177,7 +177,7 @@ export default function Navbar() {
                           }}
                           onClick={() => setDropdownOpen(false)}
                         >
-                          📊 Dashboard
+                          Dashboard
                         </Link>
                       )}
                       <button
@@ -191,7 +191,7 @@ export default function Navbar() {
                           fontWeight: 500,
                         }}
                       >
-                        🚪 Sign Out
+                        Sign Out
                       </button>
                     </div>
                   </>
@@ -226,9 +226,9 @@ export default function Navbar() {
             }}
           >
             {[
-              { path: '/', label: '🏠 Home' },
-              { path: '/cars', label: '🚗 Cars' },
-              ...(isDealer ? [{ path: '/dashboard', label: '📊 Dashboard' }] : []),
+              { path: '/', label: 'Home' },
+              { path: '/cars', label: 'Cars' },
+              ...(isDealer ? [{ path: '/dashboard', label: 'Dashboard' }] : []),
             ].map(({ path, label }) => (
               <Link
                 key={path}
@@ -250,7 +250,7 @@ export default function Navbar() {
                 </>
               ) : (
                 <button className="btn btn-danger btn-sm" onClick={handleLogout} style={{ width: '100%' }}>
-                  🚪 Sign Out
+                  Sign Out
                 </button>
               )}
             </div>
