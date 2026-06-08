@@ -1,16 +1,51 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { AuthProvider } from './context/AuthContext';
+import ProtectedRoute from './components/ProtectedRoute';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import Landing from './pages/Landing';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import Cars from './pages/Cars';
+import CarDetail from './pages/CarDetail';
+import Dashboard from './pages/Dashboard';
+import UploadCar from './pages/UploadCar';
+
 function App() {
   return (
-    <div className="min-h-screen bg-gray-950 text-white flex items-center justify-center">
-      <div className="text-center space-y-4">
-        <h1 className="text-5xl font-bold text-amber-400">EliteMotors</h1>
-        <p className="text-gray-400 text-lg">
-          Premium Car Dealership &amp; Rental Platform
-        </p>
-        <span className="inline-block px-3 py-1 text-sm bg-amber-400/10 text-amber-400 rounded-full border border-amber-400/20">
-          🚧 Under Construction
-        </span>
-      </div>
-    </div>
+    <BrowserRouter>
+      <AuthProvider>
+        <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+          <Navbar />
+          <main style={{ flex: 1 }}>
+            <Routes>
+              <Route path="/" element={<Landing />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/cars" element={<Cars />} />
+              <Route path="/cars/:id" element={<CarDetail />} />
+              <Route
+                path="/dashboard"
+                element={
+                  <ProtectedRoute dealerOnly>
+                    <Dashboard />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/dashboard/upload"
+                element={
+                  <ProtectedRoute dealerOnly>
+                    <UploadCar />
+                  </ProtectedRoute>
+                }
+              />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </AuthProvider>
+    </BrowserRouter>
   );
 }
 

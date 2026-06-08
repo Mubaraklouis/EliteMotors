@@ -34,7 +34,9 @@ const migrations = [
   {
     name: '002_create_users',
     sql: `
-      CREATE TYPE IF NOT EXISTS user_role AS ENUM ('admin', 'dealer', 'renter');
+      DO $$ BEGIN
+        CREATE TYPE user_role AS ENUM ('admin', 'dealer', 'renter');
+      EXCEPTION WHEN duplicate_object THEN NULL; END $$;
 
       CREATE TABLE IF NOT EXISTS users (
         id            UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -59,9 +61,9 @@ const migrations = [
         user_id       UUID UNIQUE NOT NULL REFERENCES users(id) ON DELETE CASCADE,
         business_name VARCHAR(150) NOT NULL,
         description   TEXT,
-        address       TEXT NOT NULL,
-        city          VARCHAR(100) NOT NULL,
-        country       VARCHAR(100) NOT NULL DEFAULT 'US',
+        address       TEXT NOT NULL DEFAULT '',
+        city          VARCHAR(100) NOT NULL DEFAULT '',
+        country       VARCHAR(100) NOT NULL DEFAULT 'NG',
         logo_url      TEXT,
         rating        NUMERIC(2,1) DEFAULT 0.0,
         is_verified   BOOLEAN DEFAULT FALSE,
@@ -73,11 +75,25 @@ const migrations = [
   {
     name: '004_create_cars',
     sql: `
-      CREATE TYPE IF NOT EXISTS car_status       AS ENUM ('available','rented','sold','maintenance');
-      CREATE TYPE IF NOT EXISTS car_condition    AS ENUM ('new','used','certified_pre_owned');
-      CREATE TYPE IF NOT EXISTS fuel_type        AS ENUM ('petrol','diesel','electric','hybrid','hydrogen');
-      CREATE TYPE IF NOT EXISTS transmission     AS ENUM ('automatic','manual','cvt');
-      CREATE TYPE IF NOT EXISTS listing_type     AS ENUM ('sale','rent','both');
+      DO $$ BEGIN
+        CREATE TYPE car_status AS ENUM ('available','rented','sold','maintenance');
+      EXCEPTION WHEN duplicate_object THEN NULL; END $$;
+
+      DO $$ BEGIN
+        CREATE TYPE car_condition AS ENUM ('new','used','certified_pre_owned');
+      EXCEPTION WHEN duplicate_object THEN NULL; END $$;
+
+      DO $$ BEGIN
+        CREATE TYPE fuel_type AS ENUM ('petrol','diesel','electric','hybrid','hydrogen');
+      EXCEPTION WHEN duplicate_object THEN NULL; END $$;
+
+      DO $$ BEGIN
+        CREATE TYPE transmission AS ENUM ('automatic','manual','cvt');
+      EXCEPTION WHEN duplicate_object THEN NULL; END $$;
+
+      DO $$ BEGIN
+        CREATE TYPE listing_type AS ENUM ('sale','rent','both');
+      EXCEPTION WHEN duplicate_object THEN NULL; END $$;
 
       CREATE TABLE IF NOT EXISTS cars (
         id           UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -92,11 +108,11 @@ const migrations = [
         color        VARCHAR(50),
         vin          VARCHAR(17) UNIQUE,
         description  TEXT,
-        listing_type listing_type NOT NULL DEFAULT 'rent',
-        status       car_status   NOT NULL DEFAULT 'available',
+        listing_type listing_type  NOT NULL DEFAULT 'rent',
+        status       car_status    NOT NULL DEFAULT 'available',
         condition    car_condition NOT NULL DEFAULT 'used',
-        fuel_type    fuel_type    NOT NULL DEFAULT 'petrol',
-        transmission transmission NOT NULL DEFAULT 'automatic',
+        fuel_type    fuel_type     NOT NULL DEFAULT 'petrol',
+        transmission transmission  NOT NULL DEFAULT 'automatic',
         seats        INTEGER DEFAULT 5,
         doors        INTEGER DEFAULT 4,
         features     JSONB   DEFAULT '[]',
@@ -107,9 +123,9 @@ const migrations = [
         updated_at   TIMESTAMPTZ DEFAULT NOW()
       );
 
-      CREATE INDEX IF NOT EXISTS idx_cars_dealer   ON cars(dealer_id);
-      CREATE INDEX IF NOT EXISTS idx_cars_status   ON cars(status);
-      CREATE INDEX IF NOT EXISTS idx_cars_city     ON cars(city);
+      CREATE INDEX IF NOT EXISTS idx_cars_dealer ON cars(dealer_id);
+      CREATE INDEX IF NOT EXISTS idx_cars_status ON cars(status);
+      CREATE INDEX IF NOT EXISTS idx_cars_city   ON cars(city);
     `,
   },
   {
@@ -128,8 +144,13 @@ const migrations = [
   {
     name: '006_create_rentals',
     sql: `
-      CREATE TYPE IF NOT EXISTS rental_status  AS ENUM ('pending','confirmed','active','completed','cancelled');
-      CREATE TYPE IF NOT EXISTS payment_status AS ENUM ('pending','paid','refunded','failed');
+      DO $$ BEGIN
+        CREATE TYPE rental_status AS ENUM ('pending','confirmed','active','completed','cancelled');
+      EXCEPTION WHEN duplicate_object THEN NULL; END $$;
+
+      DO $$ BEGIN
+        CREATE TYPE payment_status AS ENUM ('pending','paid','refunded','failed');
+      EXCEPTION WHEN duplicate_object THEN NULL; END $$;
 
       CREATE TABLE IF NOT EXISTS rentals (
         id                  UUID PRIMARY KEY DEFAULT gen_random_uuid(),
