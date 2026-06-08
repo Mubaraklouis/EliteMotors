@@ -2,6 +2,12 @@ import { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
+function getInitialTheme(): 'dark' | 'light' {
+  const saved = localStorage.getItem('em_theme');
+  if (saved === 'light' || saved === 'dark') return saved;
+  return 'dark';
+}
+
 export default function Navbar() {
   const { isAuthenticated, isDealer, user, logout } = useAuth();
   const navigate = useNavigate();
@@ -9,6 +15,13 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [theme, setTheme] = useState<'dark' | 'light'>(getInitialTheme);
+
+  // Apply theme to <html>
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('em_theme', theme);
+  }, [theme]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -26,6 +39,8 @@ export default function Navbar() {
     navigate('/');
   };
 
+  const toggleTheme = () => setTheme((t) => (t === 'dark' ? 'light' : 'dark'));
+
   const isActive = (path: string) =>
     location.pathname === path ? 'var(--accent)' : 'var(--txt2)';
 
@@ -38,7 +53,7 @@ export default function Navbar() {
           zIndex: 100,
           transition: 'all .3s ease',
           background: scrolled
-            ? 'rgba(9,9,15,0.92)'
+            ? 'var(--nav-scroll-bg)'
             : 'transparent',
           backdropFilter: scrolled ? 'blur(20px)' : 'none',
           borderBottom: scrolled ? '1px solid var(--border)' : '1px solid transparent',
@@ -52,7 +67,7 @@ export default function Navbar() {
               background: 'linear-gradient(135deg,#f59e0b,#d97706)',
               borderRadius: 8,
               display: 'flex', alignItems: 'center', justifyContent: 'center',
-              fontSize: 16,
+              fontSize: 12, fontWeight: 800, color: '#000',
             }}>EM</div>
             <span style={{
               fontWeight: 800, fontSize: 18, letterSpacing: '-.02em',
@@ -106,7 +121,42 @@ export default function Navbar() {
           </div>
 
           {/* Right side */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginLeft: 'auto' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginLeft: 'auto' }}>
+            {/* Theme toggle */}
+            <button
+              id="theme-toggle"
+              onClick={toggleTheme}
+              title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+              style={{
+                width: 36, height: 36, borderRadius: 10,
+                background: 'var(--input-bg)',
+                border: '1px solid var(--border)',
+                cursor: 'pointer',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                fontSize: 14, color: 'var(--txt2)',
+                transition: 'all .2s',
+                flexShrink: 0,
+              }}
+            >
+              {theme === 'dark' ? (
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="5"/>
+                  <line x1="12" y1="1" x2="12" y2="3"/>
+                  <line x1="12" y1="21" x2="12" y2="23"/>
+                  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                  <line x1="1" y1="12" x2="3" y2="12"/>
+                  <line x1="21" y1="12" x2="23" y2="12"/>
+                  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                  <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                </svg>
+              ) : (
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+              )}
+            </button>
+
             {!isAuthenticated ? (
               <>
                 <Link to="/login" className="btn btn-outline btn-sm" style={{ textDecoration: 'none' }}>
@@ -123,7 +173,7 @@ export default function Navbar() {
                   onClick={() => setDropdownOpen((o) => !o)}
                   style={{
                     display: 'flex', alignItems: 'center', gap: 8,
-                    background: 'rgba(255,255,255,0.05)',
+                    background: 'var(--input-bg)',
                     border: '1px solid var(--border)',
                     borderRadius: 10, padding: '6px 12px',
                     cursor: 'pointer', color: 'var(--txt)',

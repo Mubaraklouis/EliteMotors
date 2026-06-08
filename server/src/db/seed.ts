@@ -200,7 +200,7 @@ async function seed() {
       const userRes = await client.query(
         `INSERT INTO users (full_name, email, password_hash, role, phone)
          VALUES ($1, $2, $3, $4, $5) RETURNING id`,
-        ['Mubarak Louis', 'mubaraklouis@gmail.com', hash, 'dealer', '+2348012345678']
+        ['Mubarak Louis', 'mubaraklouis@gmail.com', hash, 'dealer', '+250792574679']
       );
       userId = userRes.rows[0].id;
       console.log('  ✅ Created user:', userId);

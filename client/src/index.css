@@ -20,6 +20,45 @@
   --danger:        #ef4444;
   --warn:          #f97316;
   --font:          'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --shadow-card:   0 20px 40px rgba(0,0,0,.35), 0 0 30px rgba(245,158,11,.07);
+  --shadow-car:    0 24px 48px rgba(0,0,0,.4), 0 0 32px rgba(245,158,11,.08);
+  --glass-bg:      rgba(255,255,255,0.04);
+  --input-bg:      rgba(255,255,255,0.04);
+  --input-focus-bg: rgba(245,158,11,0.04);
+  --select-opt-bg: #1a1a2e;
+  --modal-overlay: rgba(0,0,0,.75);
+  --skeleton-from: rgba(255,255,255,.03);
+  --skeleton-mid:  rgba(255,255,255,.07);
+  --spinner-track: rgba(0,0,0,.2);
+  --spinner-head:  #000;
+  --nav-scroll-bg: rgba(9,9,15,0.92);
+}
+
+[data-theme="light"] {
+  --bg:            #ffffff;
+  --bg2:           #f8f9fb;
+  --bg3:           #f1f3f6;
+  --card:          rgba(0,0,0,0.02);
+  --border:        rgba(0,0,0,0.08);
+  --border-hover:  rgba(245,158,11,0.4);
+  --txt:           #0f172a;
+  --txt2:          #475569;
+  --txt3:          #94a3b8;
+  --accent:        #d97706;
+  --accent2:       #b45309;
+  --accent-sub:    rgba(217,119,6,0.08);
+  --shadow-card:   0 10px 30px rgba(0,0,0,.08), 0 0 0 1px rgba(0,0,0,.04);
+  --shadow-car:    0 16px 40px rgba(0,0,0,.1), 0 0 0 1px rgba(0,0,0,.04);
+  --glass-bg:      rgba(255,255,255,0.7);
+  --input-bg:      rgba(0,0,0,0.03);
+  --input-focus-bg: rgba(217,119,6,0.04);
+  --select-opt-bg: #ffffff;
+  --modal-overlay: rgba(0,0,0,.4);
+  --skeleton-from: rgba(0,0,0,.04);
+  --skeleton-mid:  rgba(0,0,0,.08);
+  --spinner-track: rgba(0,0,0,.1);
+  --spinner-head:  #000;
+  --nav-scroll-bg: rgba(255,255,255,0.92);
 }
 
 body {
@@ -44,7 +83,7 @@ body {
 
 /* ─── Glass Morphism ────────────────────────────────────────────────────────── */
 .glass {
-  background: rgba(255,255,255,0.04);
+  background: var(--glass-bg);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--border);
@@ -177,7 +216,7 @@ body {
 .form-input {
   width: 100%;
   padding: 12px 14px;
-  background: rgba(255,255,255,0.04);
+  background: var(--input-bg);
   border: 1px solid var(--border);
   border-radius: 10px;
   color: var(--txt);
@@ -188,7 +227,7 @@ body {
 }
 .form-input:focus {
   border-color: var(--accent);
-  background: rgba(245,158,11,0.04);
+  background: var(--input-focus-bg);
   box-shadow: 0 0 0 3px rgba(245,158,11,0.1);
 }
 .form-input::placeholder { color: var(--txt3); }
@@ -196,7 +235,7 @@ body {
 .form-select {
   width: 100%;
   padding: 12px 14px;
-  background: rgba(255,255,255,0.04);
+  background: var(--input-bg);
   border: 1px solid var(--border);
   border-radius: 10px;
   color: var(--txt);
@@ -212,12 +251,12 @@ body {
   padding-right: 36px;
 }
 .form-select:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(245,158,11,0.1); }
-.form-select option { background: #1a1a2e; color: var(--txt); }
+.form-select option { background: var(--select-opt-bg); color: var(--txt); }
 
 .form-textarea {
   width: 100%;
   padding: 12px 14px;
-  background: rgba(255,255,255,0.04);
+  background: var(--input-bg);
   border: 1px solid var(--border);
   border-radius: 10px;
   color: var(--txt);
@@ -259,7 +298,7 @@ body {
 }
 .card:hover {
   border-color: var(--border-hover);
-  box-shadow: 0 20px 40px rgba(0,0,0,.35), 0 0 30px rgba(245,158,11,.07);
+  box-shadow: var(--shadow-card);
 }
 
 .car-card {
@@ -272,12 +311,12 @@ body {
 .car-card:hover {
   transform: translateY(-6px);
   border-color: rgba(245,158,11,.25);
-  box-shadow: 0 24px 48px rgba(0,0,0,.4), 0 0 32px rgba(245,158,11,.08);
+  box-shadow: var(--shadow-car);
 }
 
 /* ─── Skeleton Loading ───────────────────────────────────────────────────────── */
 .skeleton {
-  background: linear-gradient(90deg, rgba(255,255,255,.03) 25%, rgba(255,255,255,.07) 50%, rgba(255,255,255,.03) 75%);
+  background: linear-gradient(90deg, var(--skeleton-from) 25%, var(--skeleton-mid) 50%, var(--skeleton-from) 75%);
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite;
   border-radius: 8px;
@@ -286,8 +325,8 @@ body {
 /* ─── Spinner ────────────────────────────────────────────────────────────────── */
 .spinner {
   width: 18px; height: 18px;
-  border: 2px solid rgba(0,0,0,.2);
-  border-top-color: #000;
+  border: 2px solid var(--spinner-track);
+  border-top-color: var(--spinner-head);
   border-radius: 50%;
   animation: spin .6s linear infinite;
   display: inline-block;
@@ -299,7 +338,7 @@ body {
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,.75);
+  background: var(--modal-overlay);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   z-index: 999;
@@ -341,9 +380,11 @@ body {
 /* ─── Responsive Grid ────────────────────────────────────────────────────────── */
 .grid-cars {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
 }
+@media (max-width: 1024px) { .grid-cars { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px)  { .grid-cars { grid-template-columns: 1fr; } }
 
 /* ─── Step Indicator ─────────────────────────────────────────────────────────── */
 .step-dot {
